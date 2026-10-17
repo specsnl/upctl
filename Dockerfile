@@ -1,6 +1,9 @@
 # syntax=docker/dockerfile:1
 # check=error=true
 
+# Latest version of yq: https://hub.docker.com/r/mikefarah/yq/tags
+FROM mikefarah/yq:4.54.1 AS yq
+
 # Latest version of Alpine image: https://hub.docker.com/_/alpine/tags
 FROM alpine:3.24.2 AS upctl
 
@@ -30,10 +33,10 @@ FROM alpine:3.24.2
 RUN apk add --no-cache --upgrade --no-progress \
         'ca-certificates>=20260909' \
         bash~=5.3 \
-        jq~=1.8 \
-        yq-go~=4.53
+        jq~=1.8
 
 COPY --from=upctl /usr/local/bin/upctl /usr/local/bin/upctl
+COPY --from=yq /usr/bin/yq /usr/local/bin/yq
 
 WORKDIR /workspace
 
