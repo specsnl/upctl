@@ -30,7 +30,8 @@ FROM alpine:3.24.2
 RUN apk add --no-cache --upgrade --no-progress \
         'ca-certificates>=20260909' \
         bash~=5.3 \
-        jq~=1.8
+        jq~=1.8 \
+        yq-go~=4.53
 
 COPY --from=upctl /usr/local/bin/upctl /usr/local/bin/upctl
 
