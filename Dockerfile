@@ -5,7 +5,7 @@
 FROM mikefarah/yq:4.54.1 AS yq
 
 # Latest version of Alpine image: https://hub.docker.com/_/alpine/tags
-FROM alpine:3.24.2 AS upctl
+FROM alpine:3.24.3 AS upctl
 
 # Latest version of upctl: https://github.com/UpCloudLtd/upcloud-cli/releases
 ARG UPCTL_VERSION=3.36.0
@@ -28,7 +28,7 @@ RUN case "${TARGETARCH}" in \
     && tar -xzf "${archive}" upctl \
     && install -m 0755 upctl /usr/local/bin/upctl
 
-FROM alpine:3.24.2
+FROM alpine:3.24.3
 
 RUN apk add --no-cache --upgrade --no-progress \
         'ca-certificates>=20260909' \
