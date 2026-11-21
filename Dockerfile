@@ -31,7 +31,7 @@ RUN case "${TARGETARCH}" in \
 FROM alpine:3.24.4
 
 RUN apk add --no-cache --upgrade --no-progress \
-        'ca-certificates>=20260909' \
+        'ca-certificates>=20261020' \
         bash~=5.3 \
         jq~=1.8
 
