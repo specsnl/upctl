@@ -2,7 +2,7 @@
 # check=error=true
 
 # Latest version of yq: https://hub.docker.com/r/mikefarah/yq/tags
-FROM mikefarah/yq:4.54.2 AS yq
+FROM mikefarah/yq:4.54.3 AS yq
 
 # Latest version of Alpine image: https://hub.docker.com/_/alpine/tags
 FROM alpine:3.24.4 AS upctl
@@ -31,7 +31,7 @@ RUN case "${TARGETARCH}" in \
 FROM alpine:3.24.4
 
 RUN apk add --no-cache --upgrade --no-progress \
-        'ca-certificates>=20260909' \
+        'ca-certificates>=20261020' \
         bash~=5.3 \
         jq~=1.8
 
